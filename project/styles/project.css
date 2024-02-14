@@ -1,0 +1,73 @@
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(to right, black, grey);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav li{
+    list-style: none;
+}
+nav a {
+    text-align: center;
+    text-decoration: none;
+    color: white; 
+    transition: background-color 0.3s, color 0.3s;
+    padding: 12px 20px;
+    font-size: 25px;
+}
+nav a:hover {
+    background-color: #4ab8f7;
+    color: #11161b;
+}
+
+#body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#filter {
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 5px; /* Add some border-radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+#filter select {
+    margin-right: 10px; /* Adjust spacing between filter and dropdown */
+    padding: 8px; /* Adjust padding for a cleaner look */
+    border: none; /* Remove default border */
+    background-color: #ffffff; /* Set the background color */
+    color: #333333; /* Set the text color */
+    border-radius: 5px; /* Add some border-radius for rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    outline: none; /* Remove default focus outline */
+}
+
+
+.character-container {
+    width: 200px; 
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.character-container:hover{
+    opacity: .9;
+    border: 2.5px solid gray;
+    transition: transform .5s;
+    box-shadow: 5px 5px 10px #11161b;
+}
+
+h3 {
+    margin: 5px 0;
+}
+
+img {
+    width: 100px; 
+    height: auto;
+}

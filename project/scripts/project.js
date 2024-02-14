@@ -6,21 +6,32 @@ let charactersList = [];
 // display characters function
 const displayCharacters = (characters) => {
     characters.forEach((character) => {
+        const characterContainer = document.createElement("div");
+        characterContainer.classList.add("character-container");
         const characterName = document.createElement("h3");
         const characterIcon = document.createElement("img");
         const characterTitle = document.createElement("h4");
-        const characterTags = document.createElement("p");
+        const characterTagsContainer = document.createElement("div");
+
+
         characterName.innerHTML = character.name;
         characterIcon.src = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${character.image.full}`;
         characterIcon.alt = character.id;
         characterTitle.innerHTML = character.title;
-        characterTags.innerHTML = character.tags;
 
+        character.tags.forEach((tag) => {
+            const tagElement = document.createElement("span");
+            tagElement.innerHTML = `${tag} | `;
+            characterTagsContainer.appendChild(tagElement);
+        });
 
-        bodyElement.appendChild(characterName);
-        bodyElement.appendChild(characterIcon);
-        bodyElement.appendChild(characterTitle);
-        bodyElement.appendChild(characterTags);
+        characterContainer.appendChild(characterName);
+        characterContainer.appendChild(characterIcon);
+        characterContainer.appendChild(characterTitle);
+        characterContainer.appendChild(characterTagsContainer);
+
+        bodyElement.appendChild(characterContainer);
+
     });
 };
 
@@ -32,7 +43,7 @@ const getCharacters = async () => {
         charactersList = Object.values(data.data);
         displayCharacters(charactersList);
     }
-   console.log(charactersList);
+    console.log(charactersList);
 
 };
 
@@ -43,7 +54,7 @@ const clean = () => {
 
 // filter 
 const filterCharacters = (characters) => {
-    clean ();
+    clean();
     const filter = document.getElementById("filter");
     switch (filter.value) {
         case "tank":
@@ -55,7 +66,7 @@ const filterCharacters = (characters) => {
             displayCharacters(
                 characters.filter((character) => character.tags.includes("Mage"))
             );
-            break;    
+            break;
         case "assassin":
             displayCharacters(
                 characters.filter((character) => character.tags.includes("Assassin"))
@@ -66,13 +77,33 @@ const filterCharacters = (characters) => {
                 characters.filter((character) => character.tags.includes("Marksman"))
             );
             break;
+        case "fighter":
+            displayCharacters(
+                characters.filter((character) => character.tags.includes("Fighter"))
+            );
+            break;
+        case "support":
+            displayCharacters(
+                characters.filter((character) => character.tags.includes("Support"))
+            );
+            break;
+        case "less than 600 hp":
+            displayCharacters(
+                characters.filter((character) => character.stats.hp < 600)
+            )
+            break;
+        case "more than 600 hp":
+            displayCharacters(
+                characters.filter((character) => character.stats.hp > 600)
+            );
+            break;
         case "all":
             displayCharacters(characters);
-            break;    
+            break;
     }
 };
 
 getCharacters();
 
 //event listener
-document.getElementById("filter").addEventListener("change", () => {filterCharacters(charactersList) });
+document.getElementById("filter").addEventListener("change", () => { filterCharacters(charactersList) });
