@@ -2,7 +2,7 @@
 nav {
     display: flex;
     justify-content: space-around;
-    background: linear-gradient(to right, black, grey);
+    background: linear-gradient(to right, #041c36, rgb(5, 22, 119));
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -21,11 +21,14 @@ nav a:hover {
     background-color: #4ab8f7;
     color: #11161b;
 }
-
+body{
+    background-color: #041c36;
+}
 #body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  
 }
 
 #filter {
@@ -59,7 +62,7 @@ nav a:hover {
     color: #ffffff;
 }
 .character-container:hover{
-    opacity: .9;
+    opacity: .5;
     border: 2.5px solid gray;
     transition: transform .5s;
     box-shadow: 5px 5px 10px #11161b;
