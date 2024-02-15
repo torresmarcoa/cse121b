@@ -21,7 +21,7 @@ const displayCharacters = (characters) => {
 
         character.tags.forEach((tag) => {
             const tagElement = document.createElement("span");
-            tagElement.innerHTML = `${tag} | `;
+            tagElement.innerHTML = `${tag} `;
             characterTagsContainer.appendChild(tagElement);
         });
 
