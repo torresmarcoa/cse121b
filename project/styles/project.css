@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&family=Roboto+Slab&display=swap');
 
 nav {
     display: flex;
@@ -5,30 +6,42 @@ nav {
     background: linear-gradient(to right, #041c36, rgb(5, 22, 119));
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto Slab"
 }
-nav li{
+
+nav li {
     list-style: none;
 }
+
 nav a {
     text-align: center;
     text-decoration: none;
-    color: white; 
+    color: white;
     transition: background-color 0.3s, color 0.3s;
     padding: 12px 20px;
     font-size: 25px;
 }
+
 nav a:hover {
     background-color: #4ab8f7;
     color: #11161b;
 }
-body{
+
+body {
     background-color: #041c36;
 }
-#body {
+
+#project-title {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Roboto Slab"
+}
+
+#characters {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-  
+
 }
 
 #filter {
@@ -37,31 +50,35 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 8px;
-    border-radius: 5px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto Slab";
+    font-size: medium;
 }
 
 #filter select {
-    margin-right: 10px; 
-    padding: 8px; 
-    border: none; 
-    background-color: #ffffff; 
-    color: #333333; 
-    border-radius: 5px; 
-    cursor: pointer; 
+    margin-right: 10px;
+    padding: 8px;
+    border: none;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 5px;
+    cursor: pointer;
     outline: none;
 }
 
 
 .character-container {
-    width: 200px; 
+    width: 200px;
     margin: 10px;
     text-align: center;
     border: 1px solid #ddd;
     background-color: #0c1a29;
     color: #ffffff;
+    font-family: "Josefin Sans"
 }
-.character-container:hover{
+
+.character-container:hover {
     opacity: .5;
     border: 2.5px solid gray;
     transition: transform .5s;
@@ -73,6 +90,17 @@ h3 {
 }
 
 img {
-    width: 100px; 
+    width: 100px;
     height: auto;
+}
+
+@media screen and (max-width: 900px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        display: block;
+        padding: 15px;
+    }
 }

@@ -1,5 +1,5 @@
 // Global variables-empty characters array
-const bodyElement = document.getElementById("body");
+const bodyElement = document.getElementById("characters");
 let charactersList = [];
 
 
@@ -8,9 +8,11 @@ const displayCharacters = (characters) => {
     characters.forEach((character) => {
         const characterContainer = document.createElement("div");
         characterContainer.classList.add("character-container");
-        const characterName = document.createElement("h3");
+        const characterName = document.createElement("h2");
         const characterIcon = document.createElement("img");
-        const characterTitle = document.createElement("h4");
+        const characterTitle = document.createElement("h3");
+        const characterHp = document.createElement("p");
+        const characterMp = document.createElement("p")
         const characterTagsContainer = document.createElement("div");
 
 
@@ -18,10 +20,12 @@ const displayCharacters = (characters) => {
         characterIcon.src = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${character.image.full}`;
         characterIcon.alt = character.id;
         characterTitle.innerHTML = character.title;
+        characterHp.innerHTML = `Base HP ${character.stats.hp}`;
+        characterMp.innerHTML = `Base MP ${character.stats.mp}`;
 
         character.tags.forEach((tag) => {
-            const tagElement = document.createElement("span");
-            tagElement.innerHTML = `${tag} `;
+            const tagElement = document.createElement("h4");
+            tagElement.textContent = tag;
             characterTagsContainer.appendChild(tagElement);
         });
 
@@ -29,6 +33,8 @@ const displayCharacters = (characters) => {
         characterContainer.appendChild(characterIcon);
         characterContainer.appendChild(characterTitle);
         characterContainer.appendChild(characterTagsContainer);
+        characterContainer.appendChild(characterHp);
+        characterContainer.appendChild(characterMp);
 
         bodyElement.appendChild(characterContainer);
 
@@ -43,8 +49,6 @@ const getCharacters = async () => {
         charactersList = Object.values(data.data);
         displayCharacters(charactersList);
     }
-    console.log(charactersList);
-
 };
 
 //clean function
@@ -94,9 +98,19 @@ const filterCharacters = (characters) => {
             break;
         case "more than 600 hp":
             displayCharacters(
-                characters.filter((character) => character.stats.hp > 600)
+                characters.filter((character) => character.stats.hp >= 600)
             );
             break;
+        case "less than 400 mp":
+            displayCharacters(
+                characters.filter((character) => character.stats.mp < 400)
+            );
+            break;
+        case "more than 400 mp":
+            displayCharacters(
+                characters.filter((character => character.stats.mp >= 400))
+            );
+            break;    
         case "all":
             displayCharacters(characters);
             break;

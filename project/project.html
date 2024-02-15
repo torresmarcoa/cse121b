@@ -22,8 +22,11 @@
     </header>
     
     <main>
+        <div id="project-title">
+            <h1>League of Legends Champions</h1>
+        </div>
         <select id="filter" title="Choose a filter.">
-            <option value="" disabled selected></option>
+            <option value="" disabled selected>Select an option</option>
             <option value="tank">Tank</option>
             <option value="mage">Mage</option>
             <option value="assassin">Assassin</option>
@@ -32,9 +35,11 @@
             <option value="support">Support</option>
             <option value="less than 600 hp">Champions with less than 600 HP base</option>
             <option value="more than 600 hp">Champions with more than 600 HP base</option>
+            <option value="less than 400 mp">Champions with less than 400 MP base</option>
+            <option value="more than 400 mp">Champions with more than 400 MP base</option>
             <option value="all">No filter</option>
         </select>
-        <div id="body">
+        <div id="characters">
 
         </div>
     </main>
