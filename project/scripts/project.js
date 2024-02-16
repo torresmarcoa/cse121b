@@ -56,7 +56,8 @@ const clean = () => {
     bodyElement.innerHTML = "";
 }
 
-// filter 
+
+// filters 
 const filterCharacters = (characters) => {
     clean();
     const filter = document.getElementById("filter");
@@ -117,6 +118,7 @@ const filterCharacters = (characters) => {
     }
 };
 
+//calling the getCharacters function
 getCharacters();
 
 //event listener
